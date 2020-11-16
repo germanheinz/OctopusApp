@@ -1,0 +1,25 @@
+<!-- <app-sidebar></app-sidebar> -->
+<!-- <div class="wraper"> -->
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" (click)="drawer.toggle()" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Octopus</span>
+    <!-- <app-header></app-header> -->
+</mat-toolbar>
+<mat-drawer-container class="side-container" autosize style="height: 91%;">
+    <mat-drawer #drawer class="sidenav" mode="side" style="margin-top: 0;">
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <ol class="sideNavList">
+        <li>
+        <a href="/home">Home</a>
+        </li>
+        <li>
+        <a href="/user">User</a>
+        </li>
+    </ol>
+    </mat-drawer>
+    <div class="sidenav-content">
+        <router-outlet></router-outlet>
+    </div>
+</mat-drawer-container>
