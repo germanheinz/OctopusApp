@@ -1,25 +1,29 @@
 <!-- <app-sidebar></app-sidebar> -->
 <!-- <div class="wraper"> -->
-<mat-toolbar>
+<mat-toolbar color="primary">
     <button mat-icon-button class="example-icon" (click)="drawer.toggle()" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
     </button>
+
     <span>Octopus</span>
+    <mat-slide-toggle [formControl]="toggleControl" class="mr-8"></mat-slide-toggle>
     <!-- <app-header></app-header> -->
 </mat-toolbar>
-<mat-drawer-container class="side-container" autosize style="height: 91%;">
-    <mat-drawer #drawer class="sidenav" mode="side" style="margin-top: 0;">
+<mat-drawer-container class="side-container" color="primary" autosize style="height: 91%;">
+    <mat-drawer #drawer color="primary" class="sidenav" mode="side" style="margin-top: 0;border: none;background-color: rgb(59, 53, 53)">
     <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-    <ol class="sideNavList">
+    <ol class="sideNavList" color="primary">
         <li>
-        <a href="/home">Home</a>
+        <a routerLink="/home">Home</a>
         </li>
         <li>
-        <a href="/user">User</a>
+        <a routerLink="/user">User</a>
         </li>
     </ol>
     </mat-drawer>
-    <div class="sidenav-content">
+    <div class="sidenav-content" color="primary">
+        <h1>hola</h1>
+        <button mat-raised-button color="primary">hola</button>
         <router-outlet></router-outlet>
     </div>
 </mat-drawer-container>

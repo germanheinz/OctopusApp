@@ -10,12 +10,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { PagesComponent } from './pages/pages.component';
 import { MaterialModule } from './material-module';
 import { AuthModule } from './auth/auth.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    UserComponent,
     PagesComponent,
   ],
   imports: [
@@ -24,7 +24,10 @@ import { AuthModule } from './auth/auth.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     AuthModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

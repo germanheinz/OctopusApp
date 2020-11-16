@@ -9,18 +9,13 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
 
-    {  path: '',     component: PagesComponent,
+    {  path: '', component: PagesComponent,
         children: [
             {  path: '',     component: HomeComponent  },
-            {  path: 'home', component: HomeComponent  },
+            {  path: 'home',     component: HomeComponent  },
             {  path: 'user', component: UserComponent  },
         ]
     },
-    //{ path: 'path/:routeParam', component: MyComponent },
-    //{ path: 'staticPath', component: ... },
-    //{ path: '**', component: ... },
-    //{ path: 'oldPath', redirectTo: '/staticPath' },
-    //{ path: ..., component: ..., data: { message: 'Custom' }
 ];
 
 @NgModule({
