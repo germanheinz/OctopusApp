@@ -1,6 +1,7 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-pages',
@@ -14,7 +15,7 @@ export class PagesComponent implements OnInit {
 
   showFiller = false;
 
-  constructor(private overlay: OverlayContainer) { }
+  constructor(private overlay: OverlayContainer, private userService: UserService) { }
 
   ngOnInit(): void {
     this.toggleControl.valueChanges.subscribe( darkMode => {
@@ -27,6 +28,10 @@ export class PagesComponent implements OnInit {
         this.overlay.getContainerElement().classList.remove(darkClassName);
       }
     });
+  }
+
+  logOut(){
+    this.userService.logOut();
   }
 
 }

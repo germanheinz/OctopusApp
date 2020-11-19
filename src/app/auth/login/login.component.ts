@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 declare const gapi: any;
 @Component({
@@ -18,7 +19,9 @@ export class LoginComponent implements OnInit {
   loading: boolean = false;
   public auth2: any;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, 
+              private router: Router, 
+              private ngZone: NgZone) { }
 
   ngOnInit(): void {
     this.renderButton();
@@ -29,9 +32,9 @@ export class LoginComponent implements OnInit {
 
   }
   signIn(){
-    console.log(this.form.value);
-    this.userService.signIn(this.form.value).subscribe(resp => {
-      console.log(resp);
+      console.log(this.form.value);
+      this.userService.signIn(this.form.value).subscribe(resp => {
+      this.router.navigateByUrl('/');
     }, (err) => {
       console.log(err);
     });
@@ -54,14 +57,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  startApp() {
-    gapi.load('auth2', () => {
-      this.auth2 = gapi.auth2.init({
-        client_id: '77121684616-jnmm4otihdmjvgmgdjl750dhqpo633qb.apps.googleusercontent.com',
-        cookiepolicy: 'single_host_origin',
-      });
+  async startApp() {
+      await this.userService.googleInit();
+      this.auth2 = this.userService.auth2;
+
       this.attachSignin(document.getElementById('my-signin2'));
-    });
   }
 
   attachSignin( element ) {
@@ -71,9 +71,12 @@ export class LoginComponent implements OnInit {
               const id_token = googleUser.getAuthResponse().id_token;
               console.log(id_token);
 
-              this.userService.signInWithGoogle(id_token).subscribe();
-
-
+              this.userService.signInWithGoogle(id_token)
+              .subscribe(resp => {
+                this.ngZone.run(() => {
+                  this.router.navigateByUrl('/');
+                });
+              });
         }, function(error) {
           alert(JSON.stringify(error, undefined, 2));
         });
