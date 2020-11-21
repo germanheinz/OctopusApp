@@ -4,13 +4,17 @@ import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material-module';
+import { DetailComponent } from './detail/detail.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 
 @NgModule({
   declarations: [
     UserComponent,
-    HomeComponent
+    HomeComponent,
+    DetailComponent,
+    PaymentComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +23,9 @@ import { MaterialModule } from '../material-module';
   ],
   exports:[
     UserComponent,
-    HomeComponent
+    HomeComponent,
+    DetailComponent,
+    PaymentComponent
   ]
 })
 export class PagesModule { }

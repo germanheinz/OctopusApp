@@ -14,10 +14,11 @@
     <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
     <ol class="sideNavList" color="primary">
         <li>
-        <a routerLink="/home">Home</a>
+            
+            <a routerLink="/products"><mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon></a>
         </li>
         <li>
-        <a routerLink="/user">User</a>
+            <a routerLink="/user">User</a>
         </li>
         <li>
             <a (click)="logOut()">Log Out</a>
@@ -25,8 +26,8 @@
     </ol>
     </mat-drawer>
     <div class="sidenav-content" color="primary">
-        <h1>hola</h1>
-        <button mat-raised-button color="primary">hola</button>
+        <!-- <h1>hola</h1>
+        <button mat-raised-button color="primary">hola</button> -->
         <router-outlet></router-outlet>
     </div>
 </mat-drawer-container>

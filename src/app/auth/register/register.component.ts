@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
     this.userService.signUp(this.form.value).subscribe(resp => {
       console.log('User created');
       console.log(resp);
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/product');
     }, (err) => console.warn(err));
   }
 
