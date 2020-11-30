@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { DetailComponent } from './detail/detail.component';
 import { PaymentComponent } from './payment/payment.component';
+import { OrderComponent } from './order/order.component';
 
 
 const routes: Routes = [
@@ -16,17 +17,24 @@ const routes: Routes = [
         canActivate: [ AuthGuard ],
         children: [
             {  path: '',     component: HomeComponent  },
-            {  path: 'products',     component: HomeComponent  },
+            {  path: 'products', component: HomeComponent  },
             {  path: 'user/:id', component: UserComponent  },
+            {  path: 'order', component: OrderComponent },
         ]
     },
     {  path: 'product', component: PagesComponent,
         children: [
             {  path: 'detail/:id', component: DetailComponent },
-            { path: 'payment/:id', component: PaymentComponent  },
+            {  path: 'payment/:id', component: PaymentComponent  },
         ]
     },
-    { path: 'home', component: HomeComponent }
+    {  path: 'products', component: PagesComponent,
+    children: [
+        {  path: 'order', component: OrderComponent },
+    ]
+    }
+
+
 ];
 
 @NgModule({

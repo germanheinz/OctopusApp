@@ -1,1 +1,37 @@
-<p>payment works!</p>
+<h1>Payments Works!</h1>
+<!-- <form novalidate (ngSubmit)="createToken()" [formGroup]="stripeTest">
+  <input type="text" formControlName="name" placeholder="Jane Doe">
+  <ngx-stripe-card
+    [options]="cardOptions"
+    [elementsOptions]="elementsOptions"
+  ></ngx-stripe-card>
+  <button type="submit">
+    CREATE TOKEN
+  </button>
+</form> -->
+
+<div class="example-container">
+  <form [formGroup]="stripeForm" (ngSubmit)="createToken()">
+    <mat-form-field appearance="fill">
+      <mat-label>Product Id</mat-label>
+      <input matInput formControlName="id">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Product Name</mat-label>
+      <input matInput formControlName="productName">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+    <br>
+    <ngx-stripe-card
+    [options]="cardOptions"
+    [elementsOptions]="elementsOptions">
+    </ngx-stripe-card>
+  <mat-card-actions>
+    <!-- <button mat-button [routerLink]="['/product/payment/', '1']">BUY</button> -->
+    <button mat-button>US$10 BUY</button>
+  </mat-card-actions>
+  </form>
+</div>

@@ -1,3 +1,7 @@
+mat-drawer-container { flex: 1 1 auto; }
+mat-drawer-container{
+  height: 100%;
+}
 .side-container {
     height: 100%;
     margin-top: 0;
@@ -29,7 +33,7 @@ button {
 }
 ol{
   padding: 0;
-  width: 160px;
+  width: 76px;
   text-align: center;
 }
 ol li{
@@ -43,5 +47,23 @@ ol li a {
 }
 .wraper::-webkit-scrollbar { 
   display: none;
+}
+.icon{
+  margin-top: auto;
+}
+.container{
+  margin-left: 0;
+  margin-right: 0;
+}
+li{
+  height: 32px;
+  padding: 5px;
+}
+li:hover{
+  background-color: rgb(64 81 181);
+
+}
+li a{
+  text-decoration: none;
 }
 

@@ -1,0 +1,27 @@
+mat-form-field{
+    width: 100%;
+}
+mat-card-actions{
+    text-align: center;
+    margin-top: 20px;
+}
+button{
+    width: 100%;
+    background-color: aliceblue;
+}
+button:hover{
+    width: 100%;
+    background-color: aliceblue;
+}
+mat-form-field{
+    margin-bottom: 10px;
+}
+
+mat-card-actions button{
+    background-color: #3f51b5;
+    color: #fff;
+}
+mat-card-actions button :hover{
+    background-color: #6b7ee5;
+    color: #fff;
+}

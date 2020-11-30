@@ -10,6 +10,7 @@ import { MaterialModule } from './material-module';
 import { AuthModule } from './auth/auth.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PagesModule } from './pages/pages.module';
+import { NgxStripeModule } from 'ngx-stripe';
 
 
 @NgModule({
@@ -24,10 +25,10 @@ import { PagesModule } from './pages/pages.module';
     AppRoutingModule,
     AuthModule,
     MaterialModule,
+    PagesModule,
     FormsModule,
-    ReactiveFormsModule,
-    PagesModule
-  ],
+    ReactiveFormsModule
+ ],
   providers: [],
   bootstrap: [AppComponent]
 })

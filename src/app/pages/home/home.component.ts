@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { loadStripe } from '@stripe/stripe-js';
-import * as stripes from 'stripe';
+import { Observable } from 'rxjs';
+import { CartService } from '../../services/cart.service';
+import { map } from 'rxjs/operators';
 
 
 declare var require: any;
@@ -12,27 +13,44 @@ declare var require: any;
 })
 
 export class HomeComponent implements OnInit {
-  
-  constructor() { this.stripe(); }
 
-  ngOnInit(): void {}
+  total:    Observable<number>;
+  products: Product[] = [];
+  product:  Product;
 
-  async stripe(){
+  constructor(private cartService: CartService){
+    const product1 = ({
+      id: '1',
+      name: 'test 1',
+      amount: '100'
+    }) as Product;
 
-    const stripe = await loadStripe('pk_test_51HpFb4EMPE3A40nBB6IUeqDjZhja6bOWcq9yAyEVqj7p0icfUknI34DylHvKvGEzt3UOap9Wg9NB3ij5CMiG36sD00ZglnsxAM');
+    const product2 = ({
+      id: '2',
+      name: 'test 2',
+      amount: '200'
+    }) as Product;
 
-    // const paymentRequest = stripe.paymentRequest({
-    //   country: 'US',
-    //   currency: 'usd',
-    //   total: {
-    //     label: 'Demo total',
-    //     amount: 1000,
-    //   },
-    //   requestPayerName: true,
-    //   requestPayerEmail: true,
-    // });
-  // console.log(paymentRequest);
+    const product3 = ({
+      id: '3',
+      name: 'test 3',
+      amount: '300'
+    }) as Product;
+
+    this.products = [ product1, product2, product3 ];
   }
+
+  ngOnInit(): void {
+
+  }
+
+  addProductCart(product: Product){
+    this.cartService.addCart(product);
+    this.cartService.cart$.pipe(map(products => products.length));
+  }
+
+
+
 
 
 

@@ -19,19 +19,34 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   
   <script src="https://js.stripe.com/v3/"></script>
+
+  <!-- <script src="assets/js/index.js" data-rel-js></script> -->
+  
   <script type="text/javascript">
     var stripe = Stripe('pk_test_51HpFb4EMPE3A40nBB6IUeqDjZhja6bOWcq9yAyEVqj7p0icfUknI34DylHvKvGEzt3UOap9Wg9NB3ij5CMiG36sD00ZglnsxAM'); // use your test publishable key
     var elements = stripe.elements();
   </script>
-  
-</head>
+
+  <link rel="stylesheet" type="text/css" href="assets/css/base.css" data-rel-css="" />
+
+  <!-- CSS for each example: -->
+  <link rel="stylesheet" type="text/css" href="assets/css/example1.css" data-rel-css="" />
+
+  </head>
   <body class="is-preload mat-typography">
-      
+   
     <app-root></app-root>
 
+  
+  <!-- Simple localization script for Stripe's examples page. -->
+  <!-- <script src="assets/js/l10n.js" data-rel-js></script> -->
+  
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  
+  <!-- Scripts for each example: -->
+  <!-- <script src="assets/js/example1.js" data-rel-js></script> -->
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-
+  
   </body>
 </html>

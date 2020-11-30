@@ -1,6 +1,9 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs/internal/Observable';
+import { map } from 'rxjs/operators';
+import { CartService } from '../services/cart.service';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -13,9 +16,22 @@ export class PagesComponent implements OnInit {
   @HostBinding('class') className = '';
   toggleControl = new FormControl(false);
 
+  total$: Observable<number>;
+
   showFiller = false;
 
-  constructor(private overlay: OverlayContainer, private userService: UserService) { }
+  counterCart = 1;
+
+  constructor(private overlay: OverlayContainer,
+              private userService: UserService,
+              private cartService: CartService) {
+                this.total$ = this.cartService.cart$.pipe(
+                  map(products => {
+                    console.log(products);
+                    return products.length;
+                  })
+                );
+              }
 
   ngOnInit(): void {
     this.toggleControl.valueChanges.subscribe( darkMode => {
@@ -28,6 +44,7 @@ export class PagesComponent implements OnInit {
         this.overlay.getContainerElement().classList.remove(darkClassName);
       }
     });
+    console.log(this.total$);
   }
 
   logOut(){
