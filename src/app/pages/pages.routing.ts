@@ -9,6 +9,7 @@ import { AuthGuard } from '../guards/auth.guard';
 import { DetailComponent } from './detail/detail.component';
 import { PaymentComponent } from './payment/payment.component';
 import { OrderComponent } from './order/order.component';
+import { HistoryComponent } from './history/history.component';
 
 
 const routes: Routes = [
@@ -28,11 +29,11 @@ const routes: Routes = [
             {  path: 'payment/:id', component: PaymentComponent  },
         ]
     },
-    // {  path: 'order', component: PagesComponent,
-    // children: [
-    //     {  path: '', component: OrderComponent },
-    // ]
-    // }
+    {  path: 'history', component: PagesComponent,
+    children: [
+        {  path: '', component: HistoryComponent },
+    ]
+    }
 
 
 ];

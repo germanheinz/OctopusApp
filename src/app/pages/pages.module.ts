@@ -10,6 +10,7 @@ import { NgxStripeModule } from 'ngx-stripe';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { OrderComponent } from './order/order.component';
+import { HistoryComponent } from './history/history.component';
 
 
 
@@ -19,7 +20,8 @@ import { OrderComponent } from './order/order.component';
     HomeComponent,
     DetailComponent,
     PaymentComponent,
-    OrderComponent
+    OrderComponent,
+    HistoryComponent
   ],
   imports: [
     CommonModule,
