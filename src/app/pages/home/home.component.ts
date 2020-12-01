@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CartService } from '../../services/cart.service';
 import { map } from 'rxjs/operators';
-
+import Swal from 'sweetalert2';
+import { Product } from 'src/app/models/product.model';
 
 declare var require: any;
 
@@ -41,12 +42,25 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    
   }
 
   addProductCart(product: Product){
     this.cartService.addCart(product);
     this.cartService.cart$.pipe(map(products => products.length));
+    Swal.fire(
+      'New Product added to Cart!',
+      'You can see this products in your cart!',
+      'success'
+    );
+    this.removeProductFromHome(product);
+  }
+
+  removeProductFromHome(product: Product){
+    const i = this.products.indexOf(product);
+    if ( i !== -1 ) {
+      this.products.splice(i, 1);
+    }
   }
 
 

@@ -11,12 +11,12 @@
               </p>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-button (click)="buyIt = true">Buy it!</button>
+                <button mat-button (click)="buy(product)">Buy it!</button>
             </mat-card-actions>
           </mat-card>
       </div>
-      <div class="col-6">
-        <app-payment></app-payment>
+      <div class="col-6" *ngIf="buyIt == true">
+        <app-payment [product]="product" (productStatus)="productStatus($event)"></app-payment>
       </div>
     </div>
 

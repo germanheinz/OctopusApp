@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup,FormControl, Validators } from '@angular/forms';
 import { StripeCardElementOptions, StripeElementsOptions } from '@stripe/stripe-js';
 import { StripeService, StripeCardComponent } from 'ngx-stripe';
 import Swal from 'sweetalert2';
 import { PaymentService } from '../../services/payment.service';
 import { Payment } from '../../models/payment.model';
+import { EventEmitter } from '@angular/core'
+import { Product } from 'src/app/models/product.model';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -13,6 +15,9 @@ import { Payment } from '../../models/payment.model';
 export class PaymentComponent implements OnInit {
 
   @ViewChild(StripeCardComponent) card: StripeCardComponent;
+  @Input()  product: Product;
+  @Output() productStatus: EventEmitter<any> = new EventEmitter();
+
 
   cardOptions: StripeCardElementOptions = {
     style: {
@@ -49,6 +54,8 @@ export class PaymentComponent implements OnInit {
     });
     this.stripeForm.get('amount').setValue(20);
     this.stripeForm.get('id').setValue('cus_IQRUtsi5vjMK3R');
+
+    this.informProductStatus();
 
   }
 
@@ -90,6 +97,10 @@ export class PaymentComponent implements OnInit {
     return await this.paymentService.confirmPayment(this.payment).subscribe(resp => {
       console.log(resp);
     });
+  }
+
+  informProductStatus(){
+    this.productStatus.emit('test');
   }
 
   }

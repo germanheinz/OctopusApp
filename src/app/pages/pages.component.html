@@ -9,7 +9,10 @@
                 </button>
             </div>
             <div class="col-sm-1 icon">
-                <mat-icon [matBadge]="total$ | async" matBadgeColor="warn">shopping_cart</mat-icon>
+                <a routerLink="order">
+                    <mat-icon [matBadge]="total$ | async" *ngIf="total$ | async" matBadgeColor="warn">shopping_cart</mat-icon>
+                    <mat-icon *ngIf="!(total$ | async)" matBadgeColor="warn">shopping_cart</mat-icon>
+                </a>
             </div>
             <div class="col-sm-1">
                 <mat-slide-toggle [formControl]="toggleControl" class="mr-8"></mat-slide-toggle>

@@ -25,6 +25,7 @@ export class PagesComponent implements OnInit {
   constructor(private overlay: OverlayContainer,
               private userService: UserService,
               private cartService: CartService) {
+
                 this.total$ = this.cartService.cart$.pipe(
                   map(products => {
                     console.log(products);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/product.model';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -8,10 +9,13 @@ import { CartService } from '../../services/cart.service';
 })
 export class OrderComponent implements OnInit {
 
-  buyIt: boolean = false;
   products: Product[] = [];
+  product : Product;
+
+  buyIt: boolean = false;
 
   constructor(private cartService: CartService) {
+    this.buyIt = false;
     this.cartService.cart$.subscribe(products => {
       console.log(products);
       this.products = products;
@@ -21,7 +25,14 @@ export class OrderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  buy(){
+  buy(product: any){
+    console.log(product.id);
+    this.product = product;
     this.buyIt = true;
   }
+
+  productStatus(message: string){
+    console.log(message);
+  }
+
 }

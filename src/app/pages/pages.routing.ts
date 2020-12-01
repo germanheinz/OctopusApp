@@ -28,11 +28,11 @@ const routes: Routes = [
             {  path: 'payment/:id', component: PaymentComponent  },
         ]
     },
-    {  path: 'products', component: PagesComponent,
-    children: [
-        {  path: 'order', component: OrderComponent },
-    ]
-    }
+    // {  path: 'order', component: PagesComponent,
+    // children: [
+    //     {  path: '', component: OrderComponent },
+    // ]
+    // }
 
 
 ];
