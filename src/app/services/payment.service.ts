@@ -27,5 +27,9 @@ export class PaymentService {
     return this.http.post(`${BASE_URL}/payment/cancel`, id);
   }
 
+  history(costumerId: string){
+    return this.http.post(`${BASE_URL}/payment/toConfirm`, costumerId);
+  }
+
 
 }

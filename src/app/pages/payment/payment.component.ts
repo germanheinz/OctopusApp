@@ -81,7 +81,7 @@ export class PaymentComponent implements OnInit {
       }).then((result) => {
         console.log(result);
         if (result.isConfirmed) {
-          const paymentStatus = this.pay();
+          const paymentStatus = this.pay(this.product);
           console.log(paymentStatus);
           Swal.fire(
             'Congratulations!',
@@ -93,9 +93,12 @@ export class PaymentComponent implements OnInit {
     });
   }
 
-  async pay(){
-    return await this.paymentService.confirmPayment(this.payment).subscribe(resp => {
-      console.log(resp);
+  async pay(product: Product){
+    return await this.paymentService.confirmPayment(this.payment)
+    .subscribe(resp => {
+      const {ok, paymentIntent} = resp;
+      this.product.status =  paymentIntent.status;
+      this.productStatus.emit(this.product);
     });
   }
 

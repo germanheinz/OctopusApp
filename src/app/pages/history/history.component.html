@@ -1,1 +1,19 @@
 <p>history works!</p>
+<div class="container">
+    <div class="row">
+        <mat-card *ngFor="let product of products" class="example-card" [ngClass]="{'succeded': product.status === 'succeeded', 'toConfirm': product.status !== 'succeeded' }">
+          <div class="col-12"> 
+              <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+              <mat-card-content>
+                <h2>{{product.name}}</h2>
+                <p>
+                  The Shiba Inu is the smallest of the six original
+                </p>
+              </mat-card-content>
+            </div>
+        </mat-card>
+        <!-- <div class="col-6" *ngIf="buyIt == true">
+          <app-payment [product]="product" (productStatus)="productStatus($event)"></app-payment>
+        </div> -->
+      </div>
+  </div>

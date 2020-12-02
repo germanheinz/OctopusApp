@@ -1,0 +1,29 @@
+.example-card {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 12px;
+    max-width: 242px;
+    max-height: 372px;
+    padding: 0;
+    margin-top: 40px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .mat-card-actions{
+    text-align: center;
+  }
+
+  .succeded{
+    background-color: #cef6ce;
+  }
+  .toConfirm{
+    background-color: #f1e2cf;;
+  }
+
+  /* mat-card{
+    background-color: #cef6ce;
+  } */

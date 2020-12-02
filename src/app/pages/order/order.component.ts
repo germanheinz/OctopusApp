@@ -31,8 +31,12 @@ export class OrderComponent implements OnInit {
     this.buyIt = true;
   }
 
-  productStatus(message: string){
-    console.log(message);
+  productStatus(product: Product){
+    console.log(product);
+    const i = this.products.indexOf(product);
+    if ( i !== -1 && product.status === 'succeeded') {
+      this.products.splice(i, 1);
+    }
   }
 
 }
