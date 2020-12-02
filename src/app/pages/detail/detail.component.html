@@ -12,14 +12,14 @@
               </p>
             </mat-card-content>
             <mat-card-actions>
-              <!-- <button mat-button [routerLink]="['/product/payment/', '1']">BUY</button> -->
-              <button mat-button *ngIf="product!=null" (click)="buy()">{{product.amount}} BUY</button>
+              <button mat-button *ngIf="product !== null" (click)="addToCart(product)">ADD CART</button>
+              <button mat-button *ngIf="product !== null" routerLink='/products/order'>{{product}} BUY</button>
             </mat-card-actions>
           </mat-card>
         </div>
-        <div class="col" *ngIf="buyIt">
-          <app-payment></app-payment>
-        </div>
+        <!-- <div class="col" *ngIf="buyIt">
+          <app-payment [product]="product"></app-payment>
+        </div> -->
     </div>
 </div>
 

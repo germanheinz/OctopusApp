@@ -55,8 +55,6 @@ export class PaymentComponent implements OnInit {
     this.stripeForm.get('amount').setValue(20);
     this.stripeForm.get('id').setValue('cus_IQRUtsi5vjMK3R');
 
-    this.informProductStatus();
-
   }
 
   createToken(): void {
@@ -102,8 +100,5 @@ export class PaymentComponent implements OnInit {
     });
   }
 
-  informProductStatus(){
-    this.productStatus.emit('test');
-  }
 
   }
