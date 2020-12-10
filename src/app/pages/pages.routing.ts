@@ -10,6 +10,7 @@ import { DetailComponent } from './detail/detail.component';
 import { PaymentComponent } from './payment/payment.component';
 import { OrderComponent } from './order/order.component';
 import { HistoryComponent } from './history/history.component';
+import { CreatorComponent } from './creator/creator.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,11 @@ const routes: Routes = [
     {  path: 'history', component: PagesComponent,
     children: [
         {  path: '', component: HistoryComponent },
+    ]
+    },
+    {  path: 'creator', component: PagesComponent,
+    children: [
+        {  path: '', component: CreatorComponent },
     ]
     }
 

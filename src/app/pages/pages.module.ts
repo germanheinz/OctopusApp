@@ -7,10 +7,11 @@ import { MaterialModule } from '../material-module';
 import { DetailComponent } from './detail/detail.component';
 import { PaymentComponent } from './payment/payment.component';
 import { NgxStripeModule } from 'ngx-stripe';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { OrderComponent } from './order/order.component';
 import { HistoryComponent } from './history/history.component';
+import { CreatorComponent } from './creator/creator.component';
 
 
 
@@ -21,7 +22,8 @@ import { HistoryComponent } from './history/history.component';
     DetailComponent,
     PaymentComponent,
     OrderComponent,
-    HistoryComponent
+    HistoryComponent,
+    CreatorComponent
   ],
   imports: [
     CommonModule,

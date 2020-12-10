@@ -44,6 +44,7 @@ ol li a {
 }
 .wraper{
   height: auto;
+  height: 873px;
 }
 .wraper::-webkit-scrollbar { 
   display: none;

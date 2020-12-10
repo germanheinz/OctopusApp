@@ -1,6 +1,8 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, ElementRef, HostBinding, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDrawerToggleResult } from '@angular/material/sidenav/drawer';
+import { resolve } from 'dns';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 import { CartService } from '../services/cart.service';
@@ -16,7 +18,10 @@ export class PagesComponent implements OnInit {
   @HostBinding('class') className = '';
   toggleControl = new FormControl(false);
 
+
   total$: Observable<number>;
+  
+  @ViewChild('drawer') drawer: ElementRef;
 
   showFiller = false;
 
@@ -46,10 +51,22 @@ export class PagesComponent implements OnInit {
       }
     });
     console.log(this.total$);
+    console.log(this.toggleControl); 
   }
 
   logOut(){
     this.userService.logOut();
   }
+
+  test(){
+    console.log(this.drawer);
+    // console.log(open());  
+  }
+  // open(): Promise<MatDrawerToggleResult>{
+  //   const promise = new Promise<MatDrawerToggleResult>(resolve => {
+  //     console.log(resolve);
+  //   });
+  //   return promise; 
+  // }
 
 }

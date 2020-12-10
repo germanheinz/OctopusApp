@@ -13,15 +13,17 @@ export class HistoryComponent implements OnInit {
   productStatus = true;
   status: any [] = [];
 
-  constructor(private paymentService: PaymentService) { this.getHistory(); }
+  constructor(private paymentService: PaymentService) { }
 
   ngOnInit(): void {
+    this.getHistory();
   }
 
-  getHistory(){
-    return this.paymentService.history('cus_IQRUtsi5vjMK3R').subscribe(resp => {
+  async getHistory(){
+    return await this.paymentService.history('cus_IQRUtsi5vjMK3R').subscribe(resp => {
       console.log(resp);
-      const { data } = resp.paymentIntents;
+      const {ok, paymentIntents} = resp;
+      const { data }  = paymentIntents;
       console.log(...data);
       this.products = [...data];
     });
