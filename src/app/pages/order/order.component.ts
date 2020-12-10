@@ -39,4 +39,13 @@ export class OrderComponent implements OnInit {
     }
   }
 
+  remove(product: Product){
+    console.log(product);
+    this.cartService.removeCart(product);
+    if(this.products.length === 0){
+      console.log('esto es 0');
+      this.buyIt=false;
+    }
+  }
+
 }

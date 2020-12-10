@@ -19,15 +19,13 @@
             </div>
         </div>
     </div>
-
-
 </mat-toolbar>
 <mat-drawer-container class="side-container" color="primary" autosize>
     <mat-drawer #drawer color="primary" class="sidenav" mode="side" style="margin-top: 0;border: none;background-color: rgb(59, 53, 53)">
     <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
     <ol class="sideNavList" color="primary">
         <li><a routerLink="/products"><mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon></a></li>
-        <li><a routerLink="order"><mat-icon>shopping_basket</mat-icon></a></li>
+        <li><a routerLink="/products/order"><mat-icon>shopping_basket</mat-icon></a></li>
         <li><a routerLink="/history"><mat-icon>card_giftcard</mat-icon></a></li>
         <li><a (click)="logOut()"><mat-icon>exit_to_app</mat-icon></a></li>
     </ol>

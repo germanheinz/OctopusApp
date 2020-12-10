@@ -12,14 +12,25 @@ export class DetailComponent implements OnInit {
 
   buyIt = false;
   product: Product;
+  isAdded = false;
+  product1: Product;
+
+ 
 
 
   constructor(private activatedRoute: ActivatedRoute, private cartService: CartService, private router: Router) {
       this.activatedRoute.params.subscribe(params => {
         let id = params['id'];
         console.log('ID selected: ' + `${id}`);
+        
       });
       // TODO FINDBYID IN DB
+      const product1 = ({
+        id: '1',
+        name: 'test 1',
+        amount: '100'
+      }) as Product;
+      this.product = product1;
    }
 
   ngOnInit(): void {
@@ -31,6 +42,8 @@ export class DetailComponent implements OnInit {
 
   addToCart(product: Product){
     console.log(product);
-    // this.cartService.addCart(product);
+    this.isAdded = true;
+    this.cartService.addCart(product);
+
   }
 }

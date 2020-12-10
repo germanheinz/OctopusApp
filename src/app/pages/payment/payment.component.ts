@@ -92,10 +92,13 @@ export class PaymentComponent implements OnInit {
   }
 
   async pay(product: Product){
+    console.log('PAYMENT');
     return await this.paymentService.confirmPayment(this.payment)
     .subscribe(resp => {
-      const {ok, paymentIntent} = resp;
-      this.product.status =  paymentIntent.status;
+      const { ...paymentIntent } = resp;
+      console.log(resp);
+      console.log(paymentIntent);
+      // this.product.status =  paymentIntent.status;
       this.productStatus.emit(this.product);
     });
   }
