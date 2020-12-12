@@ -28,7 +28,7 @@ export class PaymentService {
   }
 
   history(costumerId: string){
-    return this.http.post(`${BASE_URL}/payment/toConfirm`, costumerId);
+    return this.http.post<any>(`${BASE_URL}/payment/toConfirm`, costumerId);
   }
 
 

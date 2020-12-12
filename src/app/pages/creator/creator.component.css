@@ -1,4 +1,19 @@
 form{
     margin: auto;
-    width: 45%;
 }
+.example-card {
+    max-width: 241px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 12px;
+    margin: 0;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .mat-card-actions{
+    text-align: center;
+  }
